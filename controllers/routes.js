@@ -11,6 +11,6 @@ exports.getCities = async (req, res) => {
 };
 
 exports.getAllRoutes = async (req, res) => {
-    let routes = await repository.getAllRoutes();
+    let routes = await repository.getAllRoutes(req.body.city);
     return res.success(routes);
 };
