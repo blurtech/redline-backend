@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   res.success({ title: 'Express' });
 });
 
-router.get('/routes', routeCtrl.sendRoutes);
+router.get('/routes', routeCtrl.getRoutes);
 
 router.get('/tags', showCtrl.getAllTags);
 
