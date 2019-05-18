@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-//const dbref = require("mongoose-dbref");
-const DBRef = mongoose.SchemaTypes.DBRef;
 
 let routeSchema = new Schema({
     id: Schema.ObjectId,

@@ -6,4 +6,8 @@ exports.getCities = () => Routes.find().distinct('city', {});
 
 exports.getAllRoutes = () => Routes.find({});
 
-exports.createRoute = () => Routes
+exports.createRoute = (routes) => Routes.create({
+    "name": "Бухло-трип",
+    "description": "Бухач-трип",
+    "geos": routes.map((val)=> val._id),
+});
