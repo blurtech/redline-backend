@@ -12,7 +12,7 @@ let routeSchema = new Schema({
         required: true
     },
     geos: [
-        {type: Schema.ObjectId, ref: 'showplaces'}
-        ]
+        {type: Schema.Types.ObjectId, ref: 'showplaces'}
+    ]
 });
 module.exports = mongoose.model('routes', routeSchema);
