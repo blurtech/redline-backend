@@ -16,13 +16,15 @@ let showplaceSchema = new Schema({
         required: true
     },
     geo: {
-        longitude: {
-            type: Number,
-            required: true
-        },
-        latitude: {
-            type: Number,
-            required: true
+        type:{
+            longitude: {
+                type: Number,
+                required: true
+            },
+            latitude: {
+                type: Number,
+                required: true
+            }
         },
         required: true
     },
