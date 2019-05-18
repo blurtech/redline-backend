@@ -11,6 +11,10 @@ let showplaceSchema = new Schema({
         type: String,
         required: true
     },
+    tags: {
+        type: [String],
+        required: true
+    },
     geo: {
         type: String,
         required: true
