@@ -16,6 +16,7 @@ let showplaceSchema = new Schema({
         required: true
     },
     geo: {
+/*<<<<<<< HEAD
         type:{
             longitude: {
                 type: Number,
@@ -26,6 +27,9 @@ let showplaceSchema = new Schema({
                 required: true
             }
         },
+=======*/
+        type: [Number],
+//>>>>>>> 2d8a3b9d1f9402af0c2eefb72c8146752a65377a
         required: true
     },
     address: {

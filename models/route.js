@@ -11,10 +11,10 @@ let routeSchema = new Schema({
         type: String,
         required: true
     },
-    geos: {
-        type: [{}],
-        required: true
-    }
+    //geos: {
+    //    type: [{}],
+    //    required: true
+   // }
     /*
                 type: {
                     name: {
@@ -49,5 +49,8 @@ let routeSchema = new Schema({
                         required: true
                     }
                 }*/
+    geos: [
+        {type: Schema.ObjectId, ref: 'showplaces'}
+        ]
 });
 module.exports = mongoose.model('routes', routeSchema);
