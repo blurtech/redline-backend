@@ -37,5 +37,4 @@ let routeSchema = new Schema({
     ]
 
 });
-
-module.exports = mongoose.model("routes", routeSchema);
+module.exports = mongoose.model('routes', routeSchema);
