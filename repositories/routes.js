@@ -1,4 +1,4 @@
-const Routes = require('../models/routes');
+const Routes = require('../models/route');
 
 exports.getRedLine = (city) => Routes.find( {'city': city} );
 
