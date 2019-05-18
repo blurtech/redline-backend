@@ -3,9 +3,7 @@ let router = express.Router();
 let ctrl = require('../controllers/user');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/', ctrl.getUser);
 
 router.post('/auth', ctrl.auth);
 

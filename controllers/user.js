@@ -14,3 +14,9 @@ exports.reg = async (req, res) => {
     const data = await repository.register(login, password, name);
     return res.success(data);
 };
+
+exports.getUser = async (req, res) => {
+    let id = req.params._id;
+    const data = await repository.getUserById(id);
+    return res.success(data);
+};
