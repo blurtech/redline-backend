@@ -14,3 +14,7 @@ exports.getAllRoutes = async (req, res) => {
     let routes = await repository.getAllRoutes();
     return res.success(routes);
 };
+
+exports.createRoutes = async (req, res) => {
+
+}
