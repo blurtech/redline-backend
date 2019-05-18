@@ -16,7 +16,7 @@ let showplaceSchema = new Schema({
         required: true
     },
     geo: {
-/*<<<<<<< HEAD
+/*
         type:{
             longitude: {
                 type: Number,
@@ -26,10 +26,8 @@ let showplaceSchema = new Schema({
                 type: Number,
                 required: true
             }
-        },
-=======*/
+        },*/
         type: [Number],
-//>>>>>>> 2d8a3b9d1f9402af0c2eefb72c8146752a65377a
         required: true
     },
     address: {
@@ -42,4 +40,5 @@ let showplaceSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model("showplaces", showplaceSchema);
+module.exports.model = mongoose.model("showplaces", showplaceSchema);
+module.exports.schema = showplaceSchema;
