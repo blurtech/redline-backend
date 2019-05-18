@@ -1,6 +1,11 @@
 const repository = require('../repositories/showplaces');
 
 exports.sendShowplaces = async (req, res) => {
-    const showplaces = await repository.getShowplaces();
+    let showplaces = await repository.getShowplaces();
     res.success(showplaces);
+};
+
+exports.addNewShowplace = async (req, res) => {
+    let newShowplace = await repository.createShowplace(req.body);
+    res.success(newShowplace)
 }
