@@ -13,6 +13,7 @@ let userSchema = new Schema({
         },
         name: String,
         preferences: [String]
-    });
+    },
+    { versionKey: false });
 
 module.exports = mongoose.model('users', userSchema);
