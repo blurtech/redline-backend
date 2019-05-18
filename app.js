@@ -1,12 +1,19 @@
 const express = require('express'),
     path = require('path'),
     cookieParser = require('cookie-parser'),
-    logger = require('morgan');
+    logger = require('morgan'),
+    mongoose = require('mongoose');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 
 let app = express();
+
+const mongoURI = 'mongodb://root:toor123456@ds159036.mlab.com:59036/redline';
+
+mongoose.connect(mongoURI, {useNewUrlParser: true}, function(err) {
+    if(err != null) console.log('MongoDB Error:\n' + err);
+});
 
 app.disable('etag');
 app.use(logger('dev'));
