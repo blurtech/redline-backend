@@ -2,7 +2,8 @@ const express = require('express'),
     path = require('path'),
     cookieParser = require('cookie-parser'),
     logger = require('morgan'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    cors = require('cors');
 
 const customResponses = require('./middlewares/customResponses');
 
@@ -16,6 +17,7 @@ mongoose.connect(mongoURI, {useNewUrlParser: true}, function(err) {
 });
 
 let app = express();
+app.use(cors());
 app.disable('etag');
 app.use(logger('dev'));
 app.use(express.json());
