@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+//const dbref = require("mongoose-dbref");
+const DBRef = mongoose.SchemaTypes.DBRef;
 
 let routeSchema = new Schema({
     id: Schema.ObjectId,
@@ -12,29 +14,7 @@ let routeSchema = new Schema({
         required: true
     },
     geos: [
-        {
-            name: {
-                type: String,
-                required: true
-            },
-            city: {
-                type: String,
-                required: true
-            },
-            description: {
-                type: String,
-                required: true
-            },
-            geo: {
-                type: String,
-                required: true
-            },
-            address: {
-                type: String,
-                required: true
-            }
-        }
+        {type: Schema.ObjectId, ref: 'showplaces'}
     ]
-
 });
 module.exports = mongoose.model('routes', routeSchema);
