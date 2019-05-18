@@ -1,7 +1,7 @@
 const repository = require('../repositories/routes');
 
 exports.getRoutes = async (req, res) => {
-    let routes = await repository.getRedLines(req.query.city).populate('geos');
+    let routes = await repository.getRedLines(req.query.city);
     return res.success(routes);
 };
 
