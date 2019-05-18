@@ -6,7 +6,7 @@ exports.getCities = () => Routes.find().distinct('city', {});
 
 exports.getAllRoutes = () => Routes.find({});
 
-exports.createRoute = (name, description, routes) => {
+exports.createRoute = (name, description, routes) => { //Routes - массив showplace
     let newRoute = new Routes({
         "name": name,
         "description": description,
