@@ -2,7 +2,6 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 let userSchema = new Schema({
-        _id: Schema.ObjectId,
         login: {
             type: String,
             required: true,
