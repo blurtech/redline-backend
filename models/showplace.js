@@ -16,7 +16,7 @@ let showplaceSchema = new Schema({
         required: true
     },
     geo: {
-        type: String,
+        type: [Number],
         required: true
     },
     address: {

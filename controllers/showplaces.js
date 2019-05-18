@@ -7,7 +7,7 @@ exports.sendShowplaces = async (req, res) => {
 
 exports.addNewShowplace = async (req, res) => {
     let newShowplace = await repository.createShowplace(req.body);
-    res.success(newShowplace)
+    res.success(newShowplace);
 };
 
 exports.getAllTags = async (req, res) => {
