@@ -9,3 +9,8 @@ exports.sendCities = async (req, res) => {
     let cities = await repository.getCities();
     return res.success( {'cities': cities} );
 };
+
+exports.getAllRoutes = async (req, res) => {
+    let routes = await repository.getAllRoutes();
+    return res.success(routes);
+};
