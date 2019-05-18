@@ -1,6 +1,8 @@
 const repository = require('../repositories/users');
 
-exports.sendMessage = async (req, res) => {
-    const data = await repository.getKeywords();
-    return res.success({message: answer.message});
+exports.auth = async (req, res) => {
+    let login = req.body.login;
+    let password = req.body.password;
+    const data = await repository.authorize(login, password);
+    return res.success(data);
 };
