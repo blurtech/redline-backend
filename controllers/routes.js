@@ -42,12 +42,13 @@ exports.getAllRoutes = async (req, res) => {
 exports.createRoutes = async (req, res) => {
     //get places
     let city = req.params.city;
-    let loc = req.params.location;
+    let longitude  = req.params.longitude;
+    let latitude = req.params.latitude;
     let prefs = userRepository.getUserById(req.params.id).preferences;
 
-    let places = await repositorysp.getShowplaces(city);
+    let places = await repositorysp.getShowplaceByCity(city);
 
-    await getDistances(loc.latitude+','+loc.longitude, places
+    await getDistances(latitude+','+longitude, places
     )
         .then((obj) => {
             //First destination
