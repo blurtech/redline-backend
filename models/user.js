@@ -11,8 +11,14 @@ let userSchema = new Schema({
             type: String,
             required: true
         },
-        name: String,
-        preferences: [String]
+        name: {
+            type: String,
+            default: "Вася Пупкин"
+        },
+        preferences: {
+            type: [String],
+            default: null
+        }
     },
     { versionKey: false });
 
