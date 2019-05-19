@@ -13,7 +13,7 @@ function getDistances(userSource, places){
     distance.units('metric');
     //for places as Showplace - places.map((val) => coordsToStr(val.geo))
     let params = [userSource].concat(places.map((val) => val.geo.toString()));
-    console.log(params);
+    //console.log(params);
     return new Promise(function (res, rej){
         distance.matrix(params, params,  function(err, dist) {
             res({
@@ -41,14 +41,17 @@ exports.getAllRoutes = async (req, res) => {
 
 exports.createRoutes = async (req, res) => {
     //get places
-    let city = req.params.city;
-    let longitude  = req.params.longitude;
-    let latitude = req.params.latitude;
+    let city = req.query.city;
+    let longitude  = req.query.longitude;
+    let latitude = req.query.latitude;
+    console.log(city);
+
     let prefs = userRepository.getUserById(req.params.id).preferences;
 
     let places = await repositorysp.getShowplaceByCity(city);
+    console.log(places);
 
-    await getDistances(latitude+','+longitude, places
+    await getDistances(longitude+','+latitude, places
     )
         .then((obj) => {
             //First destination
@@ -64,8 +67,8 @@ exports.createRoutes = async (req, res) => {
                     minIndex = i;
                 }
             }
-            console.log(obj.places[minIndex-1]);
-            console.log(minIndex);
+            //console.log(obj.places[minIndex-1]);
+            //console.log(minIndex);
             obj.path = [].concat(obj.places[minIndex-1]);
             obj.currItem = minIndex;
             obj.distances[0] = { elements: Array(obj.places.length+1).fill(null)};
@@ -77,8 +80,8 @@ exports.createRoutes = async (req, res) => {
     )
         .then((obj) => {
             while (obj.places.length !== obj.path.length) {
-                console.log(obj.distances);
-                console.log(obj.currItem);
+                //console.log(obj.distances);
+                //console.log(obj.currItem);
                 let Arr = obj.distances[obj.currItem].elements.map((val) => !val || val.distance ===0 ? null : val.distance.value);
                 let minIndex=-1;
                 let minValue = 9999999999999;
@@ -91,7 +94,7 @@ exports.createRoutes = async (req, res) => {
                         minIndex = i;
                     }
                 }
-                console.log(obj.places[minIndex-1]);
+                //console.log(obj.places[minIndex-1]);
                 obj.path.push(obj.places[minIndex-1]);
                 obj.distances[obj.currItem] = { elements: Array(obj.places.length+1).fill(null)};
                 for (let i=1; i<obj.places.length+1; i++){
