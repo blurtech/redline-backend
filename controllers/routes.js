@@ -1,5 +1,6 @@
 const repository = require('../repositories/routes');
 const repositorysp = require('../repositories/showplaces');
+const userRepository = require('../repositories/users');
 const distance = require('google-distance-matrix');
 
 let coordsToStr = (coords) => coords[0]+','+coords[1];
@@ -40,9 +41,13 @@ exports.getAllRoutes = async (req, res) => {
 
 exports.createRoutes = async (req, res) => {
     //get places
-    let places = await repositorysp.getShowplaces();
+    let city = req.params.city;
+    let loc = req.params.location;
+    let prefs = userRepository.getUserById(req.params.id).preferences;
 
-    let distances = await getDistances("54.9849324,82.9109311", places
+    let places = await repositorysp.getShowplaces(city);
+
+    await getDistances(loc.latitude+','+loc.longitude, places
     )
         .then((obj) => {
             //First destination

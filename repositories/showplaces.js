@@ -4,6 +4,10 @@ exports.getAllTags = () => Showplace.model.distinct('tags');
 
 exports.getShowplaces = () => Showplace.model.find();
 
+exports.getShowplacesByTags = (tags) => Showplace.model.find({}, {});
+
+exports.getShowplaceByCity = (city) => Showplace.model.find({city: city});
+
 exports.getShowPlaceById = (id) => Showplace.model.findById(id);
 
 exports.createShowplace = (body) =>
