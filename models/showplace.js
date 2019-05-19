@@ -16,17 +16,6 @@ let showplaceSchema = new Schema({
         required: true
     },
     geo: {
-/*
-        type:{
-            longitude: {
-                type: Number,
-                required: true
-            },
-            latitude: {
-                type: Number,
-                required: true
-            }
-        },*/
         type: [Number],
         required: true
     },

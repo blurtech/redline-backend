@@ -12,4 +12,6 @@ router.get('/routes', routeCtrl.getRoutes);
 
 router.get('/tags', showCtrl.getAllTags);
 
+router.get('/route', routeCtrl.createRoutes);
+
 module.exports = router;
